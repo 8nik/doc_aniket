@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniket Barnwal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to right, #141E30, #243B55);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            z-index: 10;
+            text-align: center;
+        }
+        .nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .nav a:hover {
+            color: #00ffdd;
+            transform: scale(1.1);
+        }
+        .hero {
+            background: linear-gradient(to right, #243B55, #141E30);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .hero img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            margin: 0 15px;
+            font-size: 40px;
+            color: white;
+            transition: transform 0.3s, color 0.3s;
+        }
+        .social-icons a:hover {
+            color: #00ffdd;
+            transform: scale(1.3);
+        }
+        section {
+            padding: 60px 20px;
+            scroll-margin-top: 100px;
+        }
+        .section-title {
+    font-size: 2rem;
+    color: #00ffdd;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative; /* Ensures the ::after is positioned relative to the title */
+    cursor: pointer;
+    transition: color 0.3s; /* Smooth transition for color */
+}
+
+.section-title:hover {
+    color: #ffffff; /* Changes text color on hover */
+}
+
+.section-title::after {
+    content: ''; /* Adds the decorative line */
+    position: absolute;
+    width: 0; /* Initially set to 0 width */
+    height: 3px; /* Line height */
+    background: #00ffdd; /* Line color */
+    left: 50%; /* Center the line */
+    bottom: -10px; /* Position below the text */
+    transform: translateX(-50%); /* Center alignment */
+    transition: width 0.3s ease-in-out; /* Smoothly expands the line */
+}
+
+.section-title:hover::after {
+    width: 100px; /* Expands the line on hover */
+}
+
+        .highlight {
+            transition: color 0.3s, transform 0.3s, background-color 0.3s;
+        }
+        .highlight:hover {
+            color: #000;
+            background-color: #00ffdd;
+            transform: scale(1.05);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .card-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card img {
+            border-radius: 10px;
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 255, 221, 0.5);
+        }
+        .card img:hover {
+            transform: scale(1.1);
+        }
+
+        iframe {
+            border-radius: 10px;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer {
+            background: linear-gradient(to right, #141E30, #243B55);
+            padding: 20px;
+            text-align: center;
+        }
+        .footer p {
+            margin: 0;
+            color: white;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            grid-gap: 15px; /* Space between videos */
+            margin-top: 20px;
+        }
+
+        video {
+            width: 100%; /* Responsive width for videos */
+            aspect-ratio: 4 / 3; /* Smaller aspect ratio */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        }
+
+        @media (max-width: 768px) {
+            .hero img {
+                width: 120px;
+                height: 120px;
+            }
+            .social-icons a {
+                font-size: 30px;
+            }
+            .card {
+                width: 90%;
+            }
+            iframe {
+                width: 90%;
+                height: 250px;
+            }
+            .video-grid {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 10px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .nav a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <img src="img/profile2.jpeg" alt="Aniket Barnwal">
+        <h1 class="highlight">Aniket Barnwal</h1>
+        <p class="highlight">BAMS (Docter) | Passionate about Patient Care</p>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/shorts/5dzm5ZdlsOQ" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/draniketbarnwal" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="highlight">I am a dedicated Resident Medical Officer with experience in diagnosing, treating, and managing patient care in fast-paced hospital settings. With a strong foundation in clinical expertise, I have a passion for promoting preventive healthcare and patient education. My journey in medicine has been fueled by a commitment to providing compassionate care and building trust with patients and their families.</p>
+
+            <p class="highlight">I actively participate in health awareness campaigns, team collaboration projects, and community service initiatives, which have helped me grow both personally and professionally. These efforts have further reinforced my belief in holistic healthcare and its ability to transform lives positively.</p>
+
+            <p class="highlight">When I am not working, I enjoy reading medical journals, exploring advancements in healthcare technology, and engaging in mentorship programs for aspiring medical professionals.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <ul>
+                <li class="highlight">Critical Care Management</li>
+                <li class="highlight">Advanced Airway Management</li>
+                <li class="highlight">Patient Monitoring & Assessment</li>
+                <li class="highlight">Emergency Response</li>
+                <li class="highlight">Health Awareness Campaigns</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section id="highlights">
+        <div class="container card-section">
+            <h2 class="section-title">Highlights</h2>
+            <div class="card">
+                <img src="img/e1.jpeg" alt="Patient Care">
+                <p class="highlight">Providing compassionate care to critically ill patients.</p>
+            </div>
+            <div class="card">
+                <img src="img/e2.jpeg" alt="Team Collaboration">
+                <p class="highlight">Collaborating with multidisciplinary teams for optimal care.</p>
+            </div>
+            <div class="card">
+                <img src="img/e3.jpeg" alt="Health Awareness">
+                <p class="highlight">Promoting health awareness and preventive care in the community.</p>
+            </div>
+        </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/5dzm5ZdlsOQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+
+    <section id="videos">
+        <div class="container">
+            <h2 class="section-title">Local Videos</h2>
+            <div class="video-grid">
+                <video controls>
+                    <source src="videos/v1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video controls>
+                    <source src="videos/v2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video controls>
+                    <source src="videos/v3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video controls>
+                    <source src="videos/v4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <p class="highlight">Email: <a href="mailto:aniketkbarnwal@gmail.com">aniketkbarnwal@gmail.com</a></p>
+            <p class="highlight">Phone: <a href="tel:9451903242">9451903242</a></p>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Aniket Barnwal. All Rights Reserved.</p>
+    </div>
+
+    <script>
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
